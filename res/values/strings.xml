@@ -26,6 +26,7 @@
     <string name="profile_selector_password">Password:</string>
     <string name="profile_selector_address">Server Address:</string>
     <string name="profile_selector_login">Login</string>
+    <string name="profile_selector_port">Port:</string>
     <string name="fragment_console_send">Send</string>
     <string name="player_row_kick">Kick</string>
     <string name="player_row_ban">Ban</string>

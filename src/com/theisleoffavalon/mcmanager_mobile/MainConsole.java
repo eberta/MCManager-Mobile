@@ -38,15 +38,16 @@ public class MainConsole extends Activity {
 	 * RestClient used to communicate with the server.
 	 */
 	private RestClient	rc;
+	final EditText		username	= ((EditText) findViewById(R.id.profile_selector_username));
+	final EditText		password	= (EditText) findViewById(R.id.profile_selector_password);
+	final EditText		server		= ((EditText) findViewById(R.id.profile_selector_server));
+	final EditText		port		= ((EditText) findViewById(R.id.profile_selector_port));
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		final EditText username = ((EditText) findViewById(R.id.profile_selector_username));
-		final EditText password = (EditText) findViewById(R.id.profile_selector_password);
-		final EditText server = ((EditText) findViewById(R.id.profile_selector_server));
 		Button login = (Button) findViewById(R.id.profile_selector_login);
 
 		login.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +55,10 @@ public class MainConsole extends Activity {
 			@Override
 			public void onClick(View v) {
 				try {
-					MainConsole.this.rc = new RestClient("http", server
-							.getText().toString(), 2013, "/rpc");
+					MainConsole.this.rc = new RestClient("http",
+							MainConsole.this.server.getText().toString(),
+							Integer.parseInt(MainConsole.this.port.getText()
+									.toString()), "/rpc");
 					new AsyncLoginTask().execute();
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
@@ -92,11 +95,9 @@ public class MainConsole extends Activity {
 		protected Void doInBackground(Void... params) {
 			try {
 
-				String token = MainConsole.this.rc
-						.login(((EditText) findViewById(R.id.profile_selector_username))
-								.getText().toString(),
-								((EditText) findViewById(R.id.profile_selector_password))
-										.getText().toString());
+				String token = MainConsole.this.rc.login(
+						MainConsole.this.username.getText().toString(),
+						MainConsole.this.password.getText().toString());
 
 				if (token != null) {
 					publishProgress();

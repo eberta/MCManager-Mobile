@@ -18,47 +18,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainConsole"
-    android:orientation="vertical" >
-        
-        <TextView 
+    android:orientation="vertical"
+    tools:context=".MainConsole" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_selector_username" />
+
+    <EditText
+        android:id="@+id/profile_selector_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_selector_password" />
+
+    <EditText
+        android:id="@+id/profile_selector_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:orientation="vertical">
+            
+            <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/profile_selector_username"/>
-        
-        <EditText 
-            android:id="@+id/profile_selector_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"/>
-        
-        <TextView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profile_selector_password"/>
-        
-        <EditText 
-            android:id="@+id/profile_selector_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
-        
-        <TextView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profile_selector_address"/>
-        
-        <EditText 
+            android:text="@string/profile_selector_address" />
+
+        <EditText
             android:id="@+id/profile_selector_server"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textUri"/>
+            android:inputType="textUri" />
+            
+        </LinearLayout>
         
-        <Button 
-            android:id="@+id/profile_selector_login"
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+            
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_selector_port" />
+
+        <EditText
+            android:id="@+id/profile_selector_port"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/profile_selector_login"/>
-    
+            android:inputType="text" />
+        </LinearLayout>
+        
+        
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/profile_selector_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_selector_login" />
 
 </LinearLayout>
