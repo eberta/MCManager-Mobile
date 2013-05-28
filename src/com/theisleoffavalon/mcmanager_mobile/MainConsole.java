@@ -26,6 +26,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.theisleoffavalon.mcmanager_mobile.fragments.ProgressDialogFragment;
+
 /**
  * This is the main login activity that is launched when the app launches.
  * 
@@ -95,10 +97,12 @@ public class MainConsole extends Activity {
 		protected Void doInBackground(Void... params) {
 			try {
 
+				ProgressDialogFragment pdf = new ProgressDialogFragment();
+				pdf.show(getFragmentManager(), "dialog");
 				String token = MainConsole.this.rc.login(
 						MainConsole.this.username.getText().toString(),
 						MainConsole.this.password.getText().toString());
-
+				pdf.dismiss();
 				if (token != null) {
 					publishProgress();
 				}
